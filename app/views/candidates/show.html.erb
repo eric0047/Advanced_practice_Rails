@@ -1,0 +1,16 @@
+<% if @candidate %>
+
+<h1><%= @candidate.name %></h1>
+
+<ul>
+    <li><%= @candidate.party %></li>
+    <li><%= @candidate.age %></li>
+    <li><%= @candidate.politics %></li>
+</ul>
+
+<button><%= link_to 'All Candidates', candidates_path %></button>
+
+<% else %>
+    <h1>No Record Found !</h1>
+
+<% end %>

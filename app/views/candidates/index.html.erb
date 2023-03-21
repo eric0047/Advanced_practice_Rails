@@ -1,0 +1,73 @@
+<h1>All Candidates</h1>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-12 col-lg-4 col-xl-3">
+            <div class="card">
+                <div class="pic">
+                    <img src="https://picsum.photos/1600/900/?random=10">
+                </div>
+                <h2>title</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe temporibus voluptatum est sed inventore recusandae ea officia, asperiores modi distinctio.</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-4 col-xl-3">
+            <div class="card">
+                <div class="pic">
+                    <img src="https://picsum.photos/1600/900/?random=10">
+                </div>
+                <h2>title</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe temporibus voluptatum est sed inventore recusandae ea officia, asperiores modi distinctio.</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-4 col-xl-3">
+            <div class="card">
+                <div class="pic">
+                    <img src="https://picsum.photos/1600/900/?random=10">
+                </div>
+                <h2>title</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe temporibus voluptatum est sed inventore recusandae ea officia, asperiores modi distinctio.</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-4 col-xl-3">
+            <div class="card">
+                <div class="pic">
+                    <img src="https://picsum.photos/1600/900/?random=10">
+                </div>
+                <h2>title</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe temporibus voluptatum est sed inventore recusandae ea officia, asperiores modi distinctio.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<table class="index-table">
+<caption><%= link_to 'Add Candidate', new_candidate_path %></caption>
+    <tr>
+        <td></td>
+        <td>Votes</td>
+        <td>Name</td>
+        <td>Party</td>
+        <td>Age</td>
+        <td>Politics</td>
+        <td>Action</td>
+    </tr>
+
+    <% @candidates.each do |candidate| %>
+    <tr>
+        <td><%= link_to 'vote', vote_candidate_path(candidate.id), method: 'post' %></td>
+        <td><%= candidate.vote_logs.size %></td>
+        <td><%= link_to candidate.name, candidate_path(candidate.id) %></td>
+        <td><%= candidate.party %></td>
+        <td><%= candidate.age %></td>
+        <td><%= candidate.politics %></td>
+        <td><%= link_to 'Update Info', edit_candidate_path(candidate.id) %></td>
+        <td><%= link_to 'Delete Candidate', candidate_path(candidate.id), method: 'delete', data: {confirm: 'Are you sure ?'} %></td>
+    </tr>
+
+<% end %>
+
+</table>

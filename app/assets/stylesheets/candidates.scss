@@ -1,0 +1,46 @@
+// Place all the styles related to the Candidates controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1200px;
+    margin: auto;
+}
+.pic img {
+    width: 100%;
+    vertical-align: top;
+    object-fit: contain;
+}
+.row .card {
+    background-color: #fa4;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #f00;
+    width: 280px;
+    box-sizing: border-box;
+}
+
+.index-table {
+    margin: auto;
+    border: 1px solid #f44;
+}
+
+.index-table caption {
+    border: 1px solid #ccc;
+    background-color: #ccc;
+    width: fit-content;
+    padding: 10px;
+    margin: 20px 0;
+    text-align: center;
+    border-radius: 0.25rem;
+}
+
+.index-table tr:nth-child(1) td {
+    border-bottom: 1px solid #f44;
+}
+
+.index-table td {
+    padding: 10px;
+}

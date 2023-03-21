@@ -1,0 +1,31 @@
+<h1>Update Info</h1>
+
+<% if @candidate.errors.any? %>
+<% @candidate.errors.full_messages.each do |message| %>
+<%= message %>
+<% end %>
+<% end %>
+
+<%= form_for(@candidate) do |form| %>
+<table>
+    <tr>
+        <td><%= form.label :name%></td>
+        <td><%= form.text_field :name%></td>
+    </tr>
+    <tr>
+        <td><%= form.label :party%></td>
+        <td><%= form.text_field :party%></td>
+    </tr>
+    <tr>
+        <td><%= form.label :age%></td>
+        <td><%= form.text_field :age%></td>
+    </tr>
+    <tr>
+        <td><%= form.label :politics%></td>
+        <td><%= form.text_area :politics%></td>
+    </tr>
+</table>
+
+<%= form.submit %>
+
+<% end %>
