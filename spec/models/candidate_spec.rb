@@ -12,6 +12,7 @@ RSpec.describe Candidate, type: :model do
     expect(columns).to include("party")
     expect(columns).to include("age")
     expect(columns).to include("politics")
+    expect(columns).to include("vote_logs_count")
   end
 
   it 'validate name' do
