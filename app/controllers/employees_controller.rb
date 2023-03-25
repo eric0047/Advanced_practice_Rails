@@ -12,7 +12,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.new(employee_params)
 
     if @employee.save
-      redirect_to employees_path
+      redirect_to employees_path, notice: 'Employee Created !'
     else
       render :new
     end
@@ -30,7 +30,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.find_by(id: params[:id])
 
     if @employee.update(employee_params)
-      redirect_to employees_path
+      redirect_to employees_path, notice: 'Employee Updated !'
     else
       render :edit
     end
@@ -39,13 +39,13 @@ class EmployeesController < ApplicationController
   def destroy
     @employee = Employee.find_by(id: params[:id])
     @employee.destroy
-    redirect_to employees_path
+    redirect_to employees_path, notice: 'Employee Deleted !'
   end
 
   def goodjob
     @employee = Employee.find_by(id: params[:id])
     @employee.good_job_logs.create(ip_address: request.remote_ip)
-    redirect_to employees_path
+    redirect_to employees_path, notice: 'Nice !'
   end
 
   private
