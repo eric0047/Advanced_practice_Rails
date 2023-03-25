@@ -52,13 +52,7 @@ RSpec.describe Employee, type: :feature do
 
   context 'Employee Actions' do 
     before(:each) do
-      visit new_employee_path
-      fill_in 'Name', with: 'Andy'
-      fill_in 'Age', with: '18'
-      fill_in 'Tel', with: '0900333444'
-      fill_in 'Email', with: '123@gmail.com'
-      fill_in 'Intro', with: 'testing'
-      click_on 'send profile'
+      enployee = Employee.create(name: 'Andy', age: 18, tel: '0900333444', email: '123@gmail.com', intro: 'testing')
       visit employees_path
     end
 
@@ -75,6 +69,7 @@ RSpec.describe Employee, type: :feature do
       expect(page).to have_content('0900333444')
       expect(page).to have_content('123@gmail.com')
       expect(page).to have_content('testing')
+      expect(page).to have_content('All Employees')
     end
 
     scenario 'valid Read data' do
