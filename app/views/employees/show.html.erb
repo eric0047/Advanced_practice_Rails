@@ -1,0 +1,18 @@
+<% if @employee %>
+
+
+<h1><%= @employee.name %></h1>
+
+<ul>
+  <li><%= @employee.age %></li>
+  <li><%= @employee.tel %></li>
+  <li><%= @employee.email %></li>
+  <li><%= @employee.intro %></li>
+</ul>
+
+<button><%= link_to 'All Employees', employees_path %></button>
+
+<% else %>
+  <h1>Record not found !</h1>
+  <button><%= link_to 'All Employees', employees_path %></button>
+<% end %>
