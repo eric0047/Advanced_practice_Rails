@@ -100,27 +100,12 @@ RSpec.describe Employee, type: :feature do
       expect(page).to have_content('All Employees')
       expect(page).to have_content('Robert')
     end
+
+    scenario 'Delete Employee data' do
+      click_on 'Fire Employee'
+      page.driver.browser.switch_to.alert.accept
+      visit employees_path
+      expect(page).not_to have_content('Andy')
+    end
   end
 end
-
-  # scenario 'Delete Employee data' do
-  #   visit new_employee_path
-  #   fill_in 'Name', with: 'Andy'
-  #   fill_in 'Age', with: '18'
-  #   fill_in 'Tel', with: '0900333444'
-  #   fill_in 'Email', with: '123@gmail.com'
-  #   fill_in 'Intro', with: 'testing'
-  #   click_on 'send profile'
-  #   visit employees_path
-  #   click_on 'Fire Employee'
-  #   visit employees_path
-  #   expect(page).not_to have_content('Nice')
-  #   expect(page).not_to have_content('0')
-  #   expect(page).not_to have_content('Andy')
-  #   expect(page).not_to have_content('18')
-  #   expect(page).not_to have_content('0900333444')
-  #   expect(page).not_to have_content('123@gmail.com')
-  #   expect(page).not_to have_content('testing')
-  #   expect(page).not_to have_content('Update Info')
-  #   expect(page).not_to have_content('Fire Employee')
-  # end
