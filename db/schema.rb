@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_24_172242) do
+ActiveRecord::Schema.define(version: 2023_03_25_145428) do
 
   create_table "employees", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2023_03_24_172242) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "intro"
     t.integer "goodjob", default: 0
+    t.integer "good_job_logs_count", default: 0
   end
 
   create_table "good_job_logs", force: :cascade do |t|
