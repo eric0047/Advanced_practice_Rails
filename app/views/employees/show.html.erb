@@ -10,9 +10,9 @@
   <li><%= @employee.intro %></li>
 </ul>
 
-<button><%= link_to 'All Employees', employees_path %></button>
+<%= link_to 'All Employees', employees_path %>
 
 <% else %>
   <h1>Record not found !</h1>
-  <button><%= link_to 'All Employees', employees_path %></button>
+  <%= link_to 'All Employees', employees_path %>
 <% end %>
