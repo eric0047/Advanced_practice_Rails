@@ -77,6 +77,11 @@ RSpec.describe Employee, type: :feature do
       expect(page).to have_content('testing')
     end
 
+    scenario 'valid Read data' do
+      visit employee_path(1200)
+      expect(page).to have_content('Record not found !')
+    end
+
     scenario 'Back to Home Page after read Employee data' do
       click_on 'Andy'
       visit employee_path(1)
