@@ -1,0 +1,14 @@
+<% if @student %>
+
+<h1><%= @student.name%></h1>
+
+<ul>
+  <li><%= @student.age %></li>
+  <li><%= @student.city %></li>
+</ul>
+
+<% else %>
+
+<h1>No Record Found !</h1>
+
+<% end %>

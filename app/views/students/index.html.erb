@@ -1,0 +1,23 @@
+<h1>All Students</h1>
+
+<%= link_to 'Add Student', new_student_path %>
+
+<table>
+    <tr>
+      <td>Name</td>
+      <td>Age</td>
+      <td>City</td>
+    </tr>
+
+  <% @students.each do |student| %>
+  <tr>
+    <td><%= link_to student.name, student_path(student.id) %></td>
+    <td><%= student.age %></td>
+    <td><%= student.city %></td>
+    <td><%= link_to 'Update', edit_student_path(student.id) %></td>
+    <td><%= link_to 'Delete', student_path(student.id), method: 'delete' %></td>
+  </tr>
+
+  <% end %>
+
+</table>
