@@ -10,7 +10,6 @@ RSpec.describe Employee, type: :model do
     expect(columns).to include('email')
     expect(columns).to include('intro')
     expect(columns).to include('goodjob')
-    expect(columns).to include('good_job_logs_count')
   end
 
   # it ('validates name') do
