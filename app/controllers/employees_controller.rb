@@ -1,4 +1,5 @@
 class EmployeesController < ApplicationController
+  before_action :find_employee, except: [:index, new, :create]
 
   def index
     @employees = Employee.all
@@ -19,15 +20,12 @@ class EmployeesController < ApplicationController
   end
 
   def show
-    @employee = Employee.find_by(id: params[:id])
   end
 
   def edit
-    @employee = Employee.find_by(id: params[:id])
   end
 
   def update
-    @employee = Employee.find_by(id: params[:id])
 
     if @employee.update(employee_params)
       redirect_to employees_path, notice: 'Employee Updated !'
@@ -37,13 +35,11 @@ class EmployeesController < ApplicationController
   end
 
   def destroy
-    @employee = Employee.find_by(id: params[:id])
     @employee.destroy
     redirect_to employees_path, notice: 'Employee Deleted !'
   end
 
   def goodjob
-    @employee = Employee.find_by(id: params[:id])
     @employee.good_job_logs.create(ip_address: request.remote_ip)
     redirect_to employees_path, notice: 'Nice !'
   end
@@ -51,5 +47,8 @@ class EmployeesController < ApplicationController
   private
   def employee_params
     params.require(:employee).permit(:name, :age, :tel, :email, :intro)
+  end
+  def find_employee
+    @employee = Employee.find_by!(id: params[:id])
   end
 end

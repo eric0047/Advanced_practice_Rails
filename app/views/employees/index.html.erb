@@ -16,20 +16,12 @@
   </tr>
 
 
-  <% @employees.each do |employee| %>
-  <tr>
-      <td><%= link_to 'Nice', goodjob_employee_path(employee.id), method: 'post' %></td>
-      <td><%= employee.good_job_logs.size %></td>
-      <td><%= link_to employee.name, employee_path(employee.id) %></td>
-      <td><%= employee.age %></td>
-      <td><%= employee.tel %></td>
-      <td><%= employee.email %></td>
-      <td><%= employee.intro %></td>
-      <td><%= link_to 'Update Info', edit_employee_path(employee.id) %></td>
-      <td><%= link_to 'Fire Employee', employee_path(employee.id), method: 'delete', data: {confirm:'Are you sure!?'} %></td>
-  </tr>
-  
-    <% end %> 
+
+<%= render partial: "employee", collection: @employees %>
+
+  <%# <% @employees.each do |employee| %> 
+    <%# <%= render 'employee', employee: employee %> 
+  <%# <% end %> 
 
 </table>
 

@@ -1,0 +1,41 @@
+<% if employee.errors.any? %>
+  <% employee.errors.full_messages.each do |message| %>
+    <%= message %>
+    <br>
+  <% end %>
+<% end %>
+
+
+
+<section class="new">
+  <%= form_for(employee) do |form| %>
+    <div>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div>
+      <%= form.label :age %>
+      <%= form.number_field :age %>
+    </div>
+
+    <div>
+      <%= form.label :tel %>
+      <%= form.number_field :tel %>
+    </div>
+
+     <div>
+       <%= form.label :email %>
+       <%= form.email_field :email %>
+     </div>
+
+     <div>
+       <%= form.label :intro %>
+       <%= form.text_area :intro %>
+     </div>
+
+     <%= form.submit 'send profile' %>
+  <% end %>
+
+  
+</section>
