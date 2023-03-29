@@ -1,0 +1,28 @@
+<h1>edit Books</h1>
+
+<% if @book.errors.any? %>
+  <% @book.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+<% end %>
+
+<%= form_for(@book) do |f| %>
+  <div>
+    <%= f.label 'title' %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label 'author' %>
+    <%= f.text_field :author %>
+  </div>
+
+  <div>
+    <%= f.label 'info' %>
+    <%= f.text_area :info %>
+  </div>
+
+  <hr>
+
+    <%= f.submit '送出' %>
+<% end %>
