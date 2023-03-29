@@ -9,7 +9,7 @@ RSpec.describe Employee, type: :feature do
       fill_in 'Tel', with: '0900333444'
       fill_in 'Email', with: '123@gmail.com'
       fill_in 'Intro', with: 'testing'
-      # 假資料可以用factorybot處理
+      
     end
     
    
@@ -25,8 +25,6 @@ RSpec.describe Employee, type: :feature do
       expect(page).to have_content('testing')
       expect(page).to have_content('Update Info')
       expect(page).to have_content('Fire Employee')
-      # expect不要一次打那麼多，需要確認資料都有輸入時用presence: true處理就可以了
-      # 按鈕、需要點擊的功能類的等等，可以加 aria-label='send profile' 避免網站語言切換/按鈕名字改變，測試出問題
     end
 
      scenario 'invalid inputs' do

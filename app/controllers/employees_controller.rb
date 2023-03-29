@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-  before_action :find_employee, except: [:index, new, :create]
+  before_action :find_employee, except: [:index, :new, :create]
 
   def index
     @employees = Employee.all
