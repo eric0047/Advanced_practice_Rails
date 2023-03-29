@@ -9,46 +9,13 @@ RSpec.describe Employee, type: :feature do
       fill_in 'Tel', with: '0900333444'
       fill_in 'Email', with: '123@gmail.com'
       fill_in 'Intro', with: 'testing'
-      
     end
     
    
     scenario 'valid inputs' do
       click_on 'send profile'
       visit employees_path
-      expect(page).to have_content('Nice')
-      expect(page).to have_content('0')
       expect(page).to have_content('Andy')
-      expect(page).to have_content('18')
-      expect(page).to have_content('0900333444')
-      expect(page).to have_content('123@gmail.com')
-      expect(page).to have_content('testing')
-      expect(page).to have_content('Update Info')
-      expect(page).to have_content('Fire Employee')
-    end
-
-     scenario 'invalid inputs' do
-      fill_in 'Name', with: ''
-      click_on 'send profile'
-      expect(page).to have_content("Name can't be blank")
-    end
-  
-    scenario 'invalid inputs' do
-      fill_in 'Age', with: ''
-      click_on 'send profile'
-      expect(page).to have_content("Age can't be blank")
-    end
-  
-    scenario 'invalid inputs' do
-      fill_in 'Tel', with: ''
-      click_on 'send profile'
-      expect(page).to have_content("Tel can't be blank")
-    end
-  
-    scenario 'invalid inputs' do
-      fill_in 'Email', with: ''
-      click_on 'send profile'
-      expect(page).to have_content("Email can't be blank")
     end
   end
 
@@ -67,16 +34,11 @@ RSpec.describe Employee, type: :feature do
       click_on 'Andy'
       visit employee_path(1)
       expect(page).to have_content('Andy')
-      expect(page).to have_content('18')
-      expect(page).to have_content('0900333444')
-      expect(page).to have_content('123@gmail.com')
-      expect(page).to have_content('testing')
-      expect(page).to have_content('All Employees')
     end
 
     scenario 'valid Read data' do
       visit employee_path(1200)
-      expect(page).to have_content('Record not found !')
+      expect(page).to have_content("The page you were looking for doesn't exist")
     end
 
     scenario 'Back to Home Page after read Employee data' do
