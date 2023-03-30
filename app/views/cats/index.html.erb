@@ -1,0 +1,22 @@
+<h1>All Cats</h1>
+
+<%= link_to 'add cat', new_cat_path %>
+
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Age</td>
+    <td>Breed</td>
+  </tr>
+
+
+  <% @cats.each do |cat| %>
+    <tr>
+      <td><%= link_to cat.name, cat_path(cat.id) %></td>
+      <td><%= cat.age %></td>
+      <td><%= cat.breed %></td>
+      <td><%= link_to "Update", edit_cat_path(cat.id) %></td>
+      <td><%= link_to "Delete", cat_path(cat.id), method: 'delete', data: {confirm: 'sure!?'} %></td>
+    </tr>
+  <% end %>  
+</table>

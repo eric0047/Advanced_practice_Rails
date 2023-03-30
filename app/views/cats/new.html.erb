@@ -1,0 +1,28 @@
+<h1>Add cat</h1>
+
+<% if @cat.errors.any? %>
+  <% @cat.errors.full_messages.each do |ms| %>
+    <li><%= ms %></li>
+  <% end %>
+<% end %>
+
+<%= form_for(@cat) do |f| %>
+  <div>
+    <%= f.label :name, '名字' %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :age, '年紀' %>
+    <%= f.number_field :age %>
+  </div>
+
+  <div>
+    <%= f.label :breed, '種類' %>
+    <%= f.text_field :breed %>
+  </div>
+
+  <hr>
+
+  <%= f.submit  '送出' %>
+<% end %>
