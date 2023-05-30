@@ -3,6 +3,7 @@ class EmployeesController < ApplicationController
 
   def index
     @employees = Employee.all
+    @employee_created_time = Employee.group_by_week(:created_at).count
   end
 
   def new

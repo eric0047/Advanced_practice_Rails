@@ -2,7 +2,7 @@
 
 <%= link_to 'Add Employee' , new_employee_path %>
 
-<table class=" font-bold">
+<table class="font-bold ">
   <tr>
     <td></td>
     <td>Goodjob</td>
@@ -17,10 +17,18 @@
 
 
 
-<%= render partial: "employee", collection: @employees %>
+  <%= render partial: "employee", collection: @employees %>
 
   <!-- <%# <% @employees.each do |employee| %> 
     <%# <%= render 'employee', employee: employee %> 
   <%# <% end %>  -->
+  <%= line_chart @employee_created_time, xtitle: "時間時間", ytitle: "Population",  curve: false,  legend: "top", dataset: {borderWidth: 5}, color: ["#f00", "#00f"], adapter: "highcharts" %>
+
+  <%= pie_chart Employee.group(:age).count, donut: true, thousands: ",", dataset: {borderWidth: 3}, empty: "No data", title: "Awesome chart", adapter: "highcharts" %>
+
+  <%= column_chart Employee.group(:age).count, prefix: "$", dataset: {borderWidth: 0}, stacked: true, thousands: ",", round: 2, zeros: true, adapter: "highcharts" %>
+
+  <%= bar_chart Employee.group(:name).sum(:good_job_logs_count), empty: "No data", adapter: "highcharts" %>
+
 
 </table>
